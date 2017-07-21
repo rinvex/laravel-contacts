@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+
+env:
+  matrix:
+    - COMPOSER_FLAGS="--prefer-lowest"
+    - COMPOSER_FLAGS=""
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+
+script:
+  - vendor/phpunit/phpunit/phpunit --coverage-text --coverage-clover=coverage.clover
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
+notifications:
+  slack:
+    rooms:
+      - secure: RmfpS81KwiaQ3GnTYAWuGs+8f5kxq8w5KLkxAXe/MJOw6fntozW3cyVf+I62A+GX8fi5DLm5Z9Qav10mOaO/KxouhiVQ4hRa9R7oiM82T2/FJCq7HT5KhfiVXdWJh18H+pAhIPLUC+VyeF9GKTt2p0EtkX+JNJzb3jSpPY1MSrsjN+2BOV9EMqiHf1uCT/D1qnl/iEW17XrJTtnnkiRMQeUj+6+HL9Cp34dao1dKtFmBnZt0quDY8pIyJQZ0W1hNJeXe4I09yRCyLlolkkKWgid2XiuTw9toiRnQgEXvz3K8gZmUOk6T4rSvP1shMOIE0Udhv0oTjaF4NbuAbeAOvLozTui088dliJmeHIUciY2YK+2jsY9K07IZx3ex17DrRwxiOuAkcsYyHz0zIgO3JW0HpKY1bylaWZXpJyOUGGYeTaxiDiTJrP33QLfAmofIMd8wny1BbqPlmqy8vG0jRd6uyOk2SjhTqTJ0WA6jaNsjFNilpSSgiTFVq4y0Bjq1ncY81VkGGe9HOxsJW/sbaYE5/YqD9dMoS1Jtjs4qKBVyabYuf66TW+dEAi2qomFH3Vf91Ec8d2xBeD4y3eJywB6Dkq/mcXK0CZKzRNkHhZ4lueHGqGCuh/UBWal7ALXKRH+b5SdRzy2f1MZtG/APqtZfRGjvrH1J6UqVftNjpT8=
