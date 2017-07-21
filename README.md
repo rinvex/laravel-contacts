@@ -7,8 +7,8 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/contacts.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/contacts/)
 [![Code Climate](https://img.shields.io/codeclimate/github/rinvex/contacts.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/rinvex/contacts)
 [![Travis](https://img.shields.io/travis/rinvex/contacts.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/contacts)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/12821fca-a273-475f-a636-94d288f246f5.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/12821fca-a273-475f-a636-94d288f246f5)
-[![StyleCI](https://styleci.io/repos/97658631/shield)](https://styleci.io/repos/97658631)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/8f0346d3-9e8c-4044-9b14-49a858b882d6.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/8f0346d3-9e8c-4044-9b14-49a858b882d6)
+[![StyleCI](https://styleci.io/repos/97991812/shield)](https://styleci.io/repos/97991812)
 [![License](https://img.shields.io/packagist/l/rinvex/contacts.svg?label=License&style=flat-square)](https://github.com/rinvex/contacts/blob/develop/LICENSE)
 
 
