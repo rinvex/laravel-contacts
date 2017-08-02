@@ -74,7 +74,6 @@ $user->contacts()->create([
     'language_code' => 'en',
     'birthday' => '1987-06-18',
     'gender' => 'm',
-    'is_active' => 1,
 ]);
 
 // Create multiple new contacts

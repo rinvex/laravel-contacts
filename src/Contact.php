@@ -42,7 +42,6 @@ class Contact extends Model
         'language_code',
         'birthday',
         'gender',
-        'is_active',
     ];
 
     /**
@@ -71,7 +70,6 @@ class Contact extends Model
         'language_code' => 'string',
         'birthday' => 'string',
         'gender' => 'string',
-        'is_active' => 'boolean',
         'deleted_at' => 'datetime',
     ];
 
@@ -131,7 +129,6 @@ class Contact extends Model
             'language_code' => 'nullable|alpha|size:2|language',
             'birthday' => 'nullable|date_format:Y-m-d',
             'gender' => 'nullable|string|in:m,f',
-            'is_active' => 'sometimes|boolean',
         ]);
     }
 
