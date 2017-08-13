@@ -21,19 +21,10 @@
 
 2. Execute migrations via the following command:
     ```
-    php artisan migrate --path="vendor/rinvex/contacts/database/migrations"
+    php artisan rinvex:migrate:contacts
     ```
 
-3. **Optionally** you can publish migrations and config files by running the following commands:
-    ```shell
-    // Publish migrations
-    php artisan vendor:publish --tag="rinvex-contacts-migrations"
-
-    // Publish config
-    php artisan vendor:publish --tag="rinvex-contacts-config"
-    ```
-
-4. Done!
+3. Done!
 
 
 ## Usage

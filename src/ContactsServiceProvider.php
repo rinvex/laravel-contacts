@@ -5,9 +5,19 @@ declare(strict_types=1);
 namespace Rinvex\Contacts;
 
 use Illuminate\Support\ServiceProvider;
+use Rinvex\Contacts\Console\Commands\MigrateCommand;
 
 class ContactsServiceProvider extends ServiceProvider
 {
+    /**
+     * The commands to be registered.
+     *
+     * @var array
+     */
+    protected $commands = [
+        MigrateCommand::class => 'command.rinvex.tenantable.migrate',
+    ];
+
     /**
      * {@inheritdoc}
      */
@@ -15,6 +25,15 @@ class ContactsServiceProvider extends ServiceProvider
     {
         // Merge config
         $this->mergeConfigFrom(realpath(__DIR__.'/../config/config.php'), 'rinvex.contacts');
+
+        // Register artisan commands
+        foreach ($this->commands as $key => $value) {
+            $this->app->singleton($value, function ($app) use ($key) {
+                return new $key();
+            });
+        }
+
+        $this->commands(array_values($this->commands));
     }
 
     /**
