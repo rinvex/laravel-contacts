@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Contacts;
+namespace Rinvex\Contacts\Models;
 
 use Watson\Validating\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;

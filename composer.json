@@ -74,7 +74,7 @@
         },
         "laravel": {
             "providers": [
-                "Rinvex\\Contacts\\ContactsServiceProvider"
+                "Rinvex\\Contacts\\Providers\\ContactsServiceProvider"
             ]
         }
     },

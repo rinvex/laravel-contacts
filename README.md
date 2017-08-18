@@ -31,11 +31,11 @@
 
 ### Create Your Model
 
-Simply create a new eloquent model, and use `\Rinvex\Contacts\HasContacts` trait:
+Simply create a new eloquent model, and use `\Rinvex\Contacts\Traits\HasContacts` trait:
 ```php
 namespace App\Models;
 
-use Rinvex\Contacts\HasContacts;
+use Rinvex\Contacts\Traits\HasContacts;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -75,7 +75,7 @@ $user->contacts()->createMany([
 ]);
 
 // Find an existing contact
-$contact = \Rinvex\Contacts\Contact::find(1);
+$contact = \Rinvex\Contacts\Models\Contact::find(1);
 
 // Update an existing contact
 $contact->update([

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Contacts;
+namespace Rinvex\Contacts\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;

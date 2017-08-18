@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rinvex\Contacts\Contact;
+use Rinvex\Contacts\Models\Contact;
 
 return [
 
