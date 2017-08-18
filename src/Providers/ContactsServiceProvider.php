@@ -24,7 +24,7 @@ class ContactsServiceProvider extends ServiceProvider
     public function register()
     {
         // Merge config
-        $this->mergeConfigFrom(realpath(__DIR__.'/../config/config.php'), 'rinvex.contacts');
+        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'rinvex.contacts');
 
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
