@@ -26,6 +26,11 @@ class ContactsServiceProvider extends ServiceProvider
         // Merge config
         $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'rinvex.contacts');
 
+        // Register eloquent models
+        $this->app->singleton('rinvex.contacts.contact', function ($app) {
+            return new $app['config']['rinvex.contacts.models.contact']();
+        });
+
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
             $this->app->singleton($value, function ($app) use ($key) {

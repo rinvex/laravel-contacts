@@ -75,7 +75,7 @@ $user->contacts()->createMany([
 ]);
 
 // Find an existing contact
-$contact = \Rinvex\Contacts\Models\Contact::find(1);
+$contact = app('rinvex.contacts.contact')->find(1);
 
 // Update an existing contact
 $contact->update([
