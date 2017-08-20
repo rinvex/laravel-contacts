@@ -133,6 +133,16 @@ class Contact extends Model
     }
 
     /**
+     * Get the contact name.
+     *
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return trim(collect([$this->name_prefix, $this->first_name, $this->middle_name, $this->last_name, $this->name_suffix])->implode(' '));
+    }
+
+    /**
      * Get the owner model of the contact.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
