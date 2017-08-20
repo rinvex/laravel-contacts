@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rinvex\Contacts\Providers;
 
+use Rinvex\Contacts\Models\Contact;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;
 
@@ -26,10 +27,11 @@ class ContactsServiceProvider extends ServiceProvider
         // Merge config
         $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'rinvex.contacts');
 
-        // Register eloquent models
+        // Bind eloquent models to IoC container
         $this->app->singleton('rinvex.contacts.contact', function ($app) {
             return new $app['config']['rinvex.contacts.models.contact']();
         });
+        $this->app->alias('rinvex.contacts.contact', Contact::class);
 
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
