@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rinvex\Contacts\Providers;
 
-use Rinvex\Contacts\Models\Contact;
 use Illuminate\Support\ServiceProvider;
+use Rinvex\Contacts\Contracts\ContactContract;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;
 
 class ContactsServiceProvider extends ServiceProvider
@@ -31,7 +31,7 @@ class ContactsServiceProvider extends ServiceProvider
         $this->app->singleton('rinvex.contacts.contact', function ($app) {
             return new $app['config']['rinvex.contacts.models.contact']();
         });
-        $this->app->alias('rinvex.contacts.contact', Contact::class);
+        $this->app->alias('rinvex.contacts.contact', ContactContract::class);
 
         // Register console commands
         ! $this->app->runningInConsole() || $this->registerCommands();
