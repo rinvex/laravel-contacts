@@ -232,7 +232,7 @@ class Contact extends Model implements ContactContract
      */
     public function setSourceAttribute($value)
     {
-        $this->attributes['source'] = str_slug($value, '_');
+        $this->attributes['source'] = str_slug($value);
     }
 
     /**
@@ -244,7 +244,7 @@ class Contact extends Model implements ContactContract
      */
     public function setMethodAttribute($value)
     {
-        $this->attributes['method'] = str_slug($value, '_');
+        $this->attributes['method'] = str_slug($value);
     }
 
     /**
