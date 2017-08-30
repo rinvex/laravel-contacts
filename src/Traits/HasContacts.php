@@ -38,8 +38,8 @@ trait HasContacts
      */
     public static function bootHasContacts()
     {
-        static::deleted(function (Model $entityModel) {
-            $entityModel->contacts()->delete();
+        static::deleted(function (self $model) {
+            $model->contacts()->delete();
         });
     }
 
