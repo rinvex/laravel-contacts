@@ -16,7 +16,7 @@ class ContactsServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        MigrateCommand::class => 'command.rinvex.tenantable.migrate',
+        MigrateCommand::class => 'command.rinvex.contacts.migrate',
     ];
 
     /**
