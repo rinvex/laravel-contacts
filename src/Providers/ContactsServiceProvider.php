@@ -7,6 +7,7 @@ namespace Rinvex\Contacts\Providers;
 use Illuminate\Support\ServiceProvider;
 use Rinvex\Contacts\Contracts\ContactContract;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;
+use Rinvex\Contacts\Console\Commands\PublishCommand;
 
 class ContactsServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,7 @@ class ContactsServiceProvider extends ServiceProvider
      */
     protected $commands = [
         MigrateCommand::class => 'command.rinvex.contacts.migrate',
+        PublishCommand::class => 'command.rinvex.contacts.publish',
     ];
 
     /**
