@@ -30,8 +30,8 @@ namespace Rinvex\Contacts\Contracts;
  * @property string                                                                          $language_code
  * @property string                                                                          $birthday
  * @property string                                                                          $gender
- * @property \Carbon\Carbon                                                                  $created_at
- * @property \Carbon\Carbon                                                                  $updated_at
+ * @property \Carbon\Carbon|null                                                             $created_at
+ * @property \Carbon\Carbon|null                                                             $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Contacts\Models\Contact[] $backRelatives
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent                              $entity
  * @property-read string                                                                     $name
