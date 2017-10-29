@@ -29,7 +29,7 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        $this->warn('Publish rinvex/contacts:');
+        $this->warn($this->description);
         $this->call('vendor:publish', ['--tag' => 'rinvex-contacts-config', '--force' => $this->option('force')]);
     }
 }
