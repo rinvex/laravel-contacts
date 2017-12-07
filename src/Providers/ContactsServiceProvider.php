@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Rinvex\Contacts\Contracts\ContactContract;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;
 use Rinvex\Contacts\Console\Commands\PublishCommand;
+use Rinvex\Contacts\Console\Commands\RollbackCommand;
 
 class ContactsServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,7 @@ class ContactsServiceProvider extends ServiceProvider
     protected $commands = [
         MigrateCommand::class => 'command.rinvex.contacts.migrate',
         PublishCommand::class => 'command.rinvex.contacts.publish',
+        RollbackCommand::class => 'command.rinvex.contacts.rollback',
     ];
 
     /**
