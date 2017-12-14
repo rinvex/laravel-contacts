@@ -60,7 +60,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Rinvex\\Contacts\\Test\\": "tests"
+            "Rinvex\\Contacts\\Tests\\": "tests"
         }
     },
     "config": {
