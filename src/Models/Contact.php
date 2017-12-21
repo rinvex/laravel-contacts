@@ -151,7 +151,30 @@ class Contact extends Model implements ContactContract
      *
      * @var array
      */
-    protected $rules = [];
+    protected $rules = [
+        'entity_id' => 'required|integer',
+        'entity_type' => 'required|string|max:150',
+        'source' => 'required|string|max:150',
+        'method' => 'nullable|string|max:150',
+        'name_prefix' => 'nullable|string|max:150',
+        'first_name' => 'required|string|max:150',
+        'middle_name' => 'nullable|string|max:150',
+        'last_name' => 'nullable|string|max:150',
+        'name_suffix' => 'nullable|string|max:150',
+        'job_title' => 'nullable|string|max:150',
+        'email' => 'nullable|email|min:3|max:150',
+        'phone' => 'nullable|numeric|min:4',
+        'fax' => 'nullable|string|max:150',
+        'skype' => 'nullable|string|max:150',
+        'twitter' => 'nullable|string|max:150',
+        'facebook' => 'nullable|string|max:150',
+        'google_plus' => 'nullable|string|max:150',
+        'linkedin' => 'nullable|string|max:150',
+        'country_code' => 'nullable|alpha|size:2|country',
+        'language_code' => 'nullable|alpha|size:2|language',
+        'birthday' => 'nullable|date_format:Y-m-d',
+        'gender' => 'nullable|string|in:m,f',
+    ];
 
     /**
      * Whether the model should throw a
@@ -171,30 +194,6 @@ class Contact extends Model implements ContactContract
         parent::__construct($attributes);
 
         $this->setTable(config('rinvex.contacts.tables.contacts'));
-        $this->setRules([
-            'entity_id' => 'required|integer',
-            'entity_type' => 'required|string|max:150',
-            'source' => 'required|string|max:150',
-            'method' => 'nullable|string|max:150',
-            'name_prefix' => 'nullable|string|max:150',
-            'first_name' => 'required|string|max:150',
-            'middle_name' => 'nullable|string|max:150',
-            'last_name' => 'nullable|string|max:150',
-            'name_suffix' => 'nullable|string|max:150',
-            'job_title' => 'nullable|string|max:150',
-            'email' => 'nullable|email|min:3|max:150',
-            'phone' => 'nullable|numeric|min:4',
-            'fax' => 'nullable|string|max:150',
-            'skype' => 'nullable|string|max:150',
-            'twitter' => 'nullable|string|max:150',
-            'facebook' => 'nullable|string|max:150',
-            'google_plus' => 'nullable|string|max:150',
-            'linkedin' => 'nullable|string|max:150',
-            'country_code' => 'nullable|alpha|size:2|country',
-            'language_code' => 'nullable|alpha|size:2|language',
-            'birthday' => 'nullable|date_format:Y-m-d',
-            'gender' => 'nullable|string|in:m,f',
-        ]);
     }
 
     /**
