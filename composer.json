@@ -47,7 +47,8 @@
         "illuminate/support": "~5.5.0",
         "illuminate/database": "~5.5.0",
         "rinvex/support": "dev-develop",
-        "rinvex/cacheable": "dev-develop"
+        "rinvex/cacheable": "dev-develop",
+        "roave/security-advisories": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0.0",
