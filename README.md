@@ -27,25 +27,13 @@
 
 ## Usage
 
-### Create Your Model
+To add contacts support to your eloquent models simply use `\Rinvex\Contacts\Traits\HasContacts` trait.
 
-Simply create a new eloquent model, and use `\Rinvex\Contacts\Traits\HasContacts` trait:
-```php
-namespace App\Models;
-
-use Rinvex\Contacts\Traits\HasContacts;
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
-{
-    use HasContacts;
-}
-```
-
-### Manage Your Contacts
+### Manage your contacts
 
 ```php
-$user = new \App\Models\User();
+// Get instance of your model
+$user = new \App\Models\User::find(1);
 
 // Create a new contact
 $user->contacts()->create([
