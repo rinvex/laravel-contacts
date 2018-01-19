@@ -17,7 +17,7 @@ namespace Rinvex\Contacts\Contracts;
  * @property string                                                                          $middle_name
  * @property string                                                                          $last_name
  * @property string                                                                          $name_suffix
- * @property string                                                                          $job_title
+ * @property string                                                                          $title
  * @property string                                                                          $email
  * @property string                                                                          $phone
  * @property string                                                                          $fax
@@ -53,7 +53,6 @@ namespace Rinvex\Contacts\Contracts;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGooglePlus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereJobTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLanguageCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLinkedin($value)
@@ -64,6 +63,7 @@ namespace Rinvex\Contacts\Contracts;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSkype($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSource($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereTwitter($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereUpdatedAt($value)
  * @mixin \Eloquent

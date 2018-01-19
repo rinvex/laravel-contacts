@@ -42,7 +42,7 @@ $user->contacts()->create([
     'middle_name' => 'Hossam M. M.',
     'last_name' => 'Omran',
     'name_suffix' => null,
-    'job_title' => 'Software Architect',
+    'title' => 'Software Architect',
     'email' => 'me@omranic.com',
     'phone' => '+201228160181',
     'source' => 'website',

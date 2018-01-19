@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string                                                                          $middle_name
  * @property string                                                                          $last_name
  * @property string                                                                          $name_suffix
- * @property string                                                                          $job_title
+ * @property string                                                                          $title
  * @property string                                                                          $email
  * @property string                                                                          $phone
  * @property string                                                                          $fax
@@ -61,7 +61,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGooglePlus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereJobTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLanguageCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLinkedin($value)
@@ -72,6 +71,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSkype($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSource($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereTwitter($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereUpdatedAt($value)
  * @mixin \Eloquent
@@ -94,7 +94,7 @@ class Contact extends Model implements ContactContract
         'middle_name',
         'last_name',
         'name_suffix',
-        'job_title',
+        'title',
         'email',
         'phone',
         'fax',
@@ -122,7 +122,7 @@ class Contact extends Model implements ContactContract
         'middle_name' => 'string',
         'last_name' => 'string',
         'name_suffix' => 'string',
-        'job_title' => 'string',
+        'title' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'fax' => 'string',
@@ -161,7 +161,7 @@ class Contact extends Model implements ContactContract
         'middle_name' => 'nullable|string|max:150',
         'last_name' => 'nullable|string|max:150',
         'name_suffix' => 'nullable|string|max:150',
-        'job_title' => 'nullable|string|max:150',
+        'title' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
         'phone' => 'nullable|numeric|min:4',
         'fax' => 'nullable|string|max:150',
