@@ -201,7 +201,7 @@ class Contact extends Model implements ContactContract
      *
      * @return string
      */
-    public function getNameAttribute()
+    public function getNameAttribute(): string
     {
         return trim(collect([
             $this->name_prefix,
