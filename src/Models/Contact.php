@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Support\Traits\ValidatingTrait;
-use Rinvex\Contacts\Contracts\ContactContract;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -76,7 +75,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Contact extends Model implements ContactContract
+class Contact extends Model
 {
     use ValidatingTrait;
     use CacheableEloquent;
