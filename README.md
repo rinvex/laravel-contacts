@@ -50,7 +50,7 @@ $user->contacts()->create([
     'country_code' => 'eg',
     'language_code' => 'en',
     'birthday' => '1987-06-18',
-    'gender' => 'm',
+    'gender' => 'male',
 ]);
 
 // Create multiple new contacts

@@ -32,7 +32,7 @@ class CreateContactsTable extends Migration
             $table->string('country_code', 2)->nullable();
             $table->string('language_code', 2)->nullable();
             $table->date('birthday')->nullable();
-            $table->char('gender', 1)->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
         });
     }
