@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Rinvex\Contacts\Contact;
-
 return [
 
     // Contacts Database Tables
@@ -14,7 +12,7 @@ return [
 
     // Contacts Models
     'models' => [
-        'contact' => Contact::class,
+        'contact' => \Rinvex\Contacts\Models\Contact::class,
     ],
 
 ];

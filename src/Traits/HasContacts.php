@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Contacts;
+namespace Rinvex\Contacts\Traits;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasContacts
@@ -38,8 +37,8 @@ trait HasContacts
      */
     public static function bootHasContacts()
     {
-        static::deleted(function (Model $entityModel) {
-            $entityModel->contacts()->delete();
+        static::deleted(function (self $model) {
+            $model->contacts()->delete();
         });
     }
 
