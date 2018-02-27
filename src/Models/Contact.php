@@ -162,7 +162,7 @@ class Contact extends Model
         'name_suffix' => 'nullable|string|max:150',
         'title' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
-        'phone' => 'nullable|numeric|min:4',
+        'phone' => 'nullable|numeric|phone',
         'fax' => 'nullable|string|max:150',
         'skype' => 'nullable|string|max:150',
         'twitter' => 'nullable|string|max:150',
