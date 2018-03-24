@@ -15,11 +15,7 @@ class CreateContactsTable extends Migration
             $table->morphs('entity');
             $table->string('source')->nullable();
             $table->string('method')->nullable();
-            $table->string('name_prefix')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('middle_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('name_suffix')->nullable();
+            $table->string('full_name')->nullable();
             $table->string('title')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

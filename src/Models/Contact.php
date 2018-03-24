@@ -19,11 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string                                                                          $entity_type
  * @property string                                                                          $source
  * @property string                                                                          $method
- * @property string                                                                          $name_prefix
- * @property string                                                                          $first_name
- * @property string                                                                          $middle_name
- * @property string                                                                          $last_name
- * @property string                                                                          $name_suffix
+ * @property string                                                                          $full_name
  * @property string                                                                          $title
  * @property string                                                                          $email
  * @property string                                                                          $phone
@@ -56,17 +52,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereEntityType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFacebook($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFax($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFullName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGooglePlus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLanguageCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLinkedin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereMethod($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereMiddleName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNamePrefix($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNameSuffix($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSkype($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSource($value)
@@ -88,11 +80,7 @@ class Contact extends Model
         'entity_type',
         'source',
         'method',
-        'name_prefix',
-        'first_name',
-        'middle_name',
-        'last_name',
-        'name_suffix',
+        'full_name',
         'title',
         'email',
         'phone',
@@ -116,11 +104,7 @@ class Contact extends Model
         'entity_type' => 'string',
         'source' => 'string',
         'method' => 'string',
-        'name_prefix' => 'string',
-        'first_name' => 'string',
-        'middle_name' => 'string',
-        'last_name' => 'string',
-        'name_suffix' => 'string',
+        'full_name' => 'string',
         'title' => 'string',
         'email' => 'string',
         'phone' => 'string',
@@ -155,11 +139,7 @@ class Contact extends Model
         'entity_type' => 'required|string|max:150',
         'source' => 'required|string|max:150',
         'method' => 'nullable|string|max:150',
-        'name_prefix' => 'nullable|string|max:150',
-        'first_name' => 'required|string|max:150',
-        'middle_name' => 'nullable|string|max:150',
-        'last_name' => 'nullable|string|max:150',
-        'name_suffix' => 'nullable|string|max:150',
+        'full_name' => 'required|string|max:150',
         'title' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
         'phone' => 'nullable|numeric|phone',
@@ -193,22 +173,6 @@ class Contact extends Model
         parent::__construct($attributes);
 
         $this->setTable(config('rinvex.contacts.tables.contacts'));
-    }
-
-    /**
-     * Get the contact name.
-     *
-     * @return string
-     */
-    public function getNameAttribute(): string
-    {
-        return trim(collect([
-            $this->name_prefix,
-            $this->first_name,
-            $this->middle_name,
-            $this->last_name,
-            $this->name_suffix,
-        ])->implode(' '));
     }
 
     /**
