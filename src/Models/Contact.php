@@ -17,8 +17,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int                                                                             $id
  * @property int                                                                             $entity_id
  * @property string                                                                          $entity_type
- * @property string                                                                          $source
- * @property string                                                                          $method
  * @property string                                                                          $full_name
  * @property string                                                                          $title
  * @property string                                                                          $email
@@ -33,6 +31,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string                                                                          $language_code
  * @property string                                                                          $birthday
  * @property string                                                                          $gender
+ * @property string                                                                          $national_id_type
+ * @property string                                                                          $national_id
+ * @property string                                                                          $source
+ * @property string                                                                          $method
+ * @property string                                                                          $notes
  * @property \Carbon\Carbon|null                                                             $created_at
  * @property \Carbon\Carbon|null                                                             $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Contacts\Models\Contact[] $backRelatives
@@ -58,7 +61,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLanguageCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereLinkedin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNationalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNationalIdType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNotes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSkype($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSource($value)
@@ -94,6 +100,11 @@ class Contact extends Model
         'language_code',
         'birthday',
         'gender',
+        'national_id_type',
+        'national_id',
+        'source',
+        'method',
+        'notes',
     ];
 
     /**
@@ -102,8 +113,6 @@ class Contact extends Model
     protected $casts = [
         'entity_id' => 'integer',
         'entity_type' => 'string',
-        'source' => 'string',
-        'method' => 'string',
         'full_name' => 'string',
         'title' => 'string',
         'email' => 'string',
@@ -118,6 +127,11 @@ class Contact extends Model
         'language_code' => 'string',
         'birthday' => 'string',
         'gender' => 'string',
+        'national_id_type' => 'string',
+        'national_id' => 'string',
+        'source' => 'string',
+        'method' => 'string',
+        'notes' => 'string',
         'deleted_at' => 'datetime',
     ];
 
@@ -137,8 +151,6 @@ class Contact extends Model
     protected $rules = [
         'entity_id' => 'required|integer',
         'entity_type' => 'required|string|max:150',
-        'source' => 'required|string|max:150',
-        'method' => 'nullable|string|max:150',
         'full_name' => 'required|string|max:150',
         'title' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
@@ -153,6 +165,11 @@ class Contact extends Model
         'language_code' => 'nullable|alpha|size:2|language',
         'birthday' => 'nullable|date_format:Y-m-d',
         'gender' => 'nullable|string|in:male,female',
+        'national_id_type' => 'nullable|string|in:identification,passport,other',
+        'national_id' => 'nullable|string|max:150',
+        'source' => 'nullable|string|max:150',
+        'method' => 'nullable|string|max:150',
+        'notes' => 'nullable|string|max:10000',
     ];
 
     /**

@@ -27,9 +27,11 @@ class CreateContactsTable extends Migration
             $table->string('language_code', 2)->nullable();
             $table->date('birthday')->nullable();
             $table->string('gender')->nullable();
+            $table->string('national_id_type')->nullable();
             $table->string('national_id')->nullable();
             $table->string('source')->nullable();
             $table->string('method')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
