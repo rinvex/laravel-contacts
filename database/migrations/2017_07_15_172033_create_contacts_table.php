@@ -13,7 +13,8 @@ class CreateContactsTable extends Migration
             // Columns
             $table->increments('id');
             $table->morphs('entity');
-            $table->string('full_name');
+            $table->string('given_name');
+            $table->string('family_name')->nullable();
             $table->string('title')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

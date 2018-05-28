@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int                                                                             $id
  * @property int                                                                             $entity_id
  * @property string                                                                          $entity_type
+ * @property string                                                                          $given_name
+ * @property string                                                                          $family_name
  * @property string                                                                          $full_name
  * @property string                                                                          $title
  * @property string                                                                          $email
@@ -55,7 +57,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereEntityType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFacebook($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFax($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFullName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereFamilyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGivenName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereGooglePlus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereId($value)
@@ -86,7 +89,8 @@ class Contact extends Model
         'entity_type',
         'source',
         'method',
-        'full_name',
+        'given_name',
+        'family_name',
         'title',
         'email',
         'phone',
@@ -113,7 +117,8 @@ class Contact extends Model
     protected $casts = [
         'entity_id' => 'integer',
         'entity_type' => 'string',
-        'full_name' => 'string',
+        'given_name' => 'string',
+        'family_name' => 'string',
         'title' => 'string',
         'email' => 'string',
         'phone' => 'string',
@@ -151,7 +156,8 @@ class Contact extends Model
     protected $rules = [
         'entity_id' => 'required|integer',
         'entity_type' => 'required|string|max:150',
-        'full_name' => 'required|string|max:150',
+        'given_name' => 'required|string|max:150',
+        'family_name' => 'nullable|string|max:150',
         'title' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
         'phone' => 'nullable|numeric|phone',
@@ -276,6 +282,16 @@ class Contact extends Model
     public function scopeMethod(Builder $builder, string $method): Builder
     {
         return $builder->where('method', $method);
+    }
+
+    /**
+     * Get full name attribute.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute(): string
+    {
+        return implode(' ', [$this->given_name, $this->family_name]);
     }
 
     /**

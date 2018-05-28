@@ -37,7 +37,8 @@ $user = new \App\Models\User::find(1);
 
 // Create a new contact
 $user->contacts()->create([
-    'full_name' => 'Abdelrahman Omran',
+    'given_name' => 'Abdelrahman',
+    'family_name' => 'Omran',
     'title' => 'Software Architect',
     'email' => 'me@omranic.com',
     'phone' => '+201228160181',
