@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string                                                                          $family_name
  * @property string                                                                          $full_name
  * @property string                                                                          $title
+ * @property string                                                                          $organization
  * @property string                                                                          $email
  * @property string                                                                          $phone
  * @property string                                                                          $fax
@@ -68,6 +69,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNationalIdType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereMethod($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereOrganization($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSkype($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Contacts\Models\Contact whereSource($value)
@@ -92,6 +94,7 @@ class Contact extends Model
         'given_name',
         'family_name',
         'title',
+        'organization',
         'email',
         'phone',
         'fax',
@@ -120,6 +123,7 @@ class Contact extends Model
         'given_name' => 'string',
         'family_name' => 'string',
         'title' => 'string',
+        'organization' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'fax' => 'string',
@@ -159,6 +163,7 @@ class Contact extends Model
         'given_name' => 'required|string|max:150',
         'family_name' => 'nullable|string|max:150',
         'title' => 'nullable|string|max:150',
+        'organization' => 'nullable|string|max:150',
         'email' => 'nullable|email|min:3|max:150',
         'phone' => 'nullable|numeric|phone',
         'fax' => 'nullable|string|max:150',

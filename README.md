@@ -40,6 +40,7 @@ $user->contacts()->create([
     'given_name' => 'Abdelrahman',
     'family_name' => 'Omran',
     'title' => 'Software Architect',
+    'organization' => 'Rinvex',
     'email' => 'me@omranic.com',
     'phone' => '+201228160181',
     'source' => 'website',
