@@ -2,19 +2,19 @@
 
 **Rinvex Contacts** is a polymorphic Laravel package, for contact management system. You can add contacts to any eloquent model with ease.
 
-[![Packagist](https://img.shields.io/packagist/v/rinvex/contacts.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/contacts)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/contacts.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/contacts/)
-[![Code Climate](https://img.shields.io/codeclimate/github/rinvex/contacts.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/rinvex/contacts)
-[![Travis](https://img.shields.io/travis/rinvex/contacts.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/contacts)
+[![Packagist](https://img.shields.io/packagist/v/rinvex/laravel-contacts.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/laravel-contacts)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/laravel-contacts.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/laravel-contacts/)
+[![Code Climate](https://img.shields.io/codeclimate/github/rinvex/laravel-contacts.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/rinvex/laravel-contacts)
+[![Travis](https://img.shields.io/travis/rinvex/laravel-contacts.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/laravel-contacts)
 [![StyleCI](https://styleci.io/repos/97991812/shield)](https://styleci.io/repos/97991812)
-[![License](https://img.shields.io/packagist/l/rinvex/contacts.svg?label=License&style=flat-square)](https://github.com/rinvex/contacts/blob/develop/LICENSE)
+[![License](https://img.shields.io/packagist/l/rinvex/laravel-contacts.svg?label=License&style=flat-square)](https://github.com/rinvex/laravel-contacts/blob/develop/LICENSE)
 
 
 ## Installation
 
 1. Install the package via composer:
     ```shell
-    composer require rinvex/contacts
+    composer require rinvex/laravel-contacts
     ```
 
 2. Execute migrations via the following command:
