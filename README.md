@@ -22,7 +22,12 @@
     php artisan rinvex:migrate:contacts
     ```
 
-3. Done!
+3. **Optional** if you want to change the configurations:
+    ```shell
+    php artisan rinvex:publish:contacts
+    ```
+
+4. Done!
 
 
 ## Usage
