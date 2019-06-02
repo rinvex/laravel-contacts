@@ -4,7 +4,6 @@
 
 [![Packagist](https://img.shields.io/packagist/v/rinvex/laravel-contacts.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/laravel-contacts)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/laravel-contacts.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/laravel-contacts/)
-[![Code Climate](https://img.shields.io/codeclimate/github/rinvex/laravel-contacts.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/rinvex/laravel-contacts)
 [![Travis](https://img.shields.io/travis/rinvex/laravel-contacts.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/laravel-contacts)
 [![StyleCI](https://styleci.io/repos/97991812/shield)](https://styleci.io/repos/97991812)
 [![License](https://img.shields.io/packagist/l/rinvex/laravel-contacts.svg?label=License&style=flat-square)](https://github.com/rinvex/laravel-contacts/blob/develop/LICENSE)
