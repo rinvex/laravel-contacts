@@ -6,12 +6,15 @@ namespace Rinvex\Contacts\Providers;
 
 use Rinvex\Contacts\Models\Contact;
 use Illuminate\Support\ServiceProvider;
+use Rinvex\Support\Traits\ConsoleTools;
 use Rinvex\Contacts\Console\Commands\MigrateCommand;
 use Rinvex\Contacts\Console\Commands\PublishCommand;
 use Rinvex\Contacts\Console\Commands\RollbackCommand;
 
 class ContactsServiceProvider extends ServiceProvider
 {
+    use ConsoleTools;
+
     /**
      * The commands to be registered.
      *
@@ -36,7 +39,7 @@ class ContactsServiceProvider extends ServiceProvider
         $contactModel === Contact::class || $this->app->alias('rinvex.contacts.contact', Contact::class);
 
         // Register console commands
-        ! $this->app->runningInConsole() || $this->registerCommands();
+        ! $this->app->runningInConsole() || $this->registersCommands();
     }
 
     /**
@@ -44,36 +47,8 @@ class ContactsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Load migrations
-        ! $this->app->runningInConsole() || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
-
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishResources();
-    }
-
-    /**
-     * Publish resources.
-     *
-     * @return void
-     */
-    protected function publishResources(): void
-    {
-        $this->publishes([realpath(__DIR__.'/../../config/config.php') => config_path('rinvex.contacts.php')], 'rinvex-contacts-config');
-        $this->publishes([realpath(__DIR__.'/../../database/migrations') => database_path('migrations')], 'rinvex-contacts-migrations');
-    }
-
-    /**
-     * Register console commands.
-     *
-     * @return void
-     */
-    protected function registerCommands(): void
-    {
-        // Register artisan commands
-        foreach ($this->commands as $key => $value) {
-            $this->app->singleton($value, $key);
-        }
-
-        $this->commands(array_values($this->commands));
+        ! $this->app->runningInConsole() || $this->publishesConfig('rinvex/laravel-contacts');
+        ! $this->app->runningInConsole() || $this->publishesMigrations('rinvex/laravel-contacts');
     }
 }
