@@ -47,10 +47,10 @@
         "illuminate/support": "~5.8.0",
         "jackpopp/geodistance": "^1.2.0",
         "propaganistas/laravel-phone": "^4.1.0",
-        "rinvex/laravel-cacheable": "^2.0.0",
+        "rinvex/laravel-cacheable": "^2.1.0",
         "rinvex/countries": "^6.0.0",
         "rinvex/languages": "^4.0.0",
-        "rinvex/laravel-support": "^2.0.0",
+        "rinvex/laravel-support": "^2.1.0",
         "watson/validating": "^3.2.0"
     },
     "require-dev": {
