@@ -7,7 +7,7 @@ namespace Rinvex\Contacts\Models;
 use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Rinvex\Contacts\Events\ContactCreated;
+use Rinvex\Contacts\Events\ContactSaved;
 use Rinvex\Contacts\Events\ContactDeleted;
 use Rinvex\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -140,7 +140,7 @@ class Contact extends Model
      * @var array
      */
     protected $dispatchesEvents = [
-        'created' => ContactCreated::class,
+        'saved' => ContactSaved::class,
         'deleted' => ContactDeleted::class,
     ];
 

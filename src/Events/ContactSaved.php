@@ -7,11 +7,13 @@ namespace Rinvex\Contacts\Events;
 use Rinvex\Contacts\Models\Contact;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class ContactCreated implements ShouldBroadcast
+class ContactSaved implements ShouldBroadcast
 {
     use SerializesModels;
+    Use InteractsWithSockets;
 
     public $contact;
 
