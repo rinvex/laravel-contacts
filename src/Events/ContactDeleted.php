@@ -54,6 +54,6 @@ class ContactDeleted implements ShouldBroadcast
      */
     protected function formatChannelName(): string
     {
-        return 'rinvex.contacts.count';
+        return 'rinvex.contacts.list';
     }
 }

@@ -44,7 +44,7 @@ class ContactSaved implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return 'rinvex.contacts.created';
+        return 'rinvex.contacts.saved';
     }
 
     /**
@@ -54,6 +54,6 @@ class ContactSaved implements ShouldBroadcast
      */
     protected function formatChannelName(): string
     {
-        return 'rinvex.contacts.count';
+        return 'rinvex.contacts.list';
     }
 }
