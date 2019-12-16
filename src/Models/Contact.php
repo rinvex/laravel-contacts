@@ -6,8 +6,8 @@ namespace Rinvex\Contacts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
-use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Contacts\Events\ContactSaved;
+use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Contacts\Events\ContactDeleted;
 use Rinvex\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
