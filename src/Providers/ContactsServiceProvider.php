@@ -48,8 +48,8 @@ class ContactsServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishesConfig('rinvex/laravel-contacts');
-        ! $this->app->runningInConsole() || $this->publishesMigrations('rinvex/laravel-contacts');
-        ! $this->app['config']['rinvex.contacts.autoload_migrations'] || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->publishesConfig('rinvex/laravel-contacts');
+        $this->publishesMigrations('rinvex/laravel-contacts');
+        ! $this->autoloadMigrations('rinvex.contacts') || $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 }
