@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rinvex\Contacts\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
 use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
