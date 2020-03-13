@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rinvex\Contacts\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Rinvex\Cacheable\CacheableEloquent;
 use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
@@ -209,7 +210,7 @@ class Contact extends Model
      */
     public function setSourceAttribute($value): void
     {
-        $this->attributes['source'] = str_slug($value);
+        $this->attributes['source'] = Str::slug($value);
     }
 
     /**
@@ -221,7 +222,7 @@ class Contact extends Model
      */
     public function setMethodAttribute($value): void
     {
-        $this->attributes['method'] = str_slug($value);
+        $this->attributes['method'] = Str::slug($value);
     }
 
     /**
