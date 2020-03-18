@@ -31,7 +31,11 @@ class RollbackCommand extends Command
     {
         $this->alert($this->description);
 
-        if (file_exists($path = 'database/migrations/rinvex/laravel-contacts')) {
+        $path = config('rinvex.contacts.autoload_migrations') ?
+            'vendor/rinvex/laravel-contacts/database/migrations' :
+            'database/migrations/rinvex/laravel-contacts';
+
+        if (file_exists($path)) {
             $this->call('migrate:reset', [
                 '--path' => $path,
                 '--force' => $this->option('force'),
