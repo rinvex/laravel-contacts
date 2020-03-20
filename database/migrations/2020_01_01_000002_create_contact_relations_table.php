@@ -12,8 +12,8 @@ class CreateContactRelationsTable extends Migration
     {
         Schema::create(config('rinvex.contacts.tables.contact_relations'), function (Blueprint $table) {
             // Columns
-            $table->integer('contact_id')->unsigned();
-            $table->integer('related_id')->unsigned();
+            $table->bigInteger('contact_id')->unsigned();
+            $table->bigInteger('related_id')->unsigned();
             $table->string('relation');
             $table->timestamps();
 
