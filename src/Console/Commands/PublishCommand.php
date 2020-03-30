@@ -33,14 +33,14 @@ class PublishCommand extends Command
 
         switch ($this->option('resource')) {
             case 'config':
-                $this->call('vendor:publish', ['--tag' => 'rinvex-contacts-config', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rinvex/contacts::config', '--force' => $this->option('force')]);
                 break;
             case 'migrations':
-                $this->call('vendor:publish', ['--tag' => 'rinvex-contacts-migrations', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rinvex/contacts::migrations', '--force' => $this->option('force')]);
                 break;
             default:
-                $this->call('vendor:publish', ['--tag' => 'rinvex-contacts-config', '--force' => $this->option('force')]);
-                $this->call('vendor:publish', ['--tag' => 'rinvex-contacts-migrations', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rinvex/contacts::config', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rinvex/contacts::migrations', '--force' => $this->option('force')]);
                 break;
         }
 
