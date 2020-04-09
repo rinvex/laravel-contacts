@@ -11,7 +11,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create(config('rinvex.contacts.tables.contacts'), function (Blueprint $table) {
             // Columns
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->morphs('entity');
             $table->string('given_name');
             $table->string('family_name')->nullable();
