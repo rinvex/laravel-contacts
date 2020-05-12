@@ -294,8 +294,8 @@ class Contact extends Model
      */
     public function relatives(): BelongsToMany
     {
-        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'contact_id', 'related_id')
-                    ->withPivot('relation')->withTimestamps();
+        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'contact_id', 'related_id', 'id', 'id', 'relatives')
+                    ->withPivot(['relation'])->withTimestamps();
     }
 
     /**
@@ -305,7 +305,7 @@ class Contact extends Model
      */
     public function backRelatives(): BelongsToMany
     {
-        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'related_id', 'contact_id')
-                    ->withPivot('relation')->withTimestamps();
+        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'related_id', 'contact_id', 'id', 'id', 'backRelatives')
+                    ->withPivot(['relation'])->withTimestamps();
     }
 }
