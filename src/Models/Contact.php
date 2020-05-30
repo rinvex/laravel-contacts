@@ -152,23 +152,23 @@ class Contact extends Model
      */
     protected $rules = [
         'entity_id' => 'required|integer',
-        'entity_type' => 'required|string|max:150',
-        'given_name' => 'required|string|max:150',
-        'family_name' => 'nullable|string|max:150',
-        'title' => 'nullable|string|max:150',
-        'organization' => 'nullable|string|max:150',
+        'entity_type' => 'required|string|strip_tags|max:150',
+        'given_name' => 'required|string|strip_tags|max:150',
+        'family_name' => 'nullable|string|strip_tags|max:150',
+        'title' => 'nullable|string|strip_tags|max:150',
+        'organization' => 'nullable|string|strip_tags|max:150',
         'email' => 'nullable|email|min:3|max:150',
         'phone' => 'nullable|numeric|phone',
-        'fax' => 'nullable|string|max:150',
+        'fax' => 'nullable|string|strip_tags|max:150',
         'country_code' => 'nullable|alpha|size:2|country',
         'language_code' => 'nullable|alpha|size:2|language',
         'birthday' => 'nullable|date_format:Y-m-d',
         'gender' => 'nullable|in:male,female',
         'national_id_type' => 'nullable|in:identification,passport,other',
-        'national_id' => 'nullable|string|max:150',
-        'source' => 'nullable|string|max:150',
-        'method' => 'nullable|string|max:150',
-        'notes' => 'nullable|string|max:10000',
+        'national_id' => 'nullable|string|strip_tags|max:150',
+        'source' => 'nullable|string|strip_tags|max:150',
+        'method' => 'nullable|string|strip_tags|max:150',
+        'notes' => 'nullable|string|strip_tags|max:10000',
     ];
 
     /**
@@ -198,7 +198,7 @@ class Contact extends Model
      */
     public function entity(): MorphTo
     {
-        return $this->morphTo('entity', 'entity_type', 'entity_id');
+        return $this->morphTo('entity', 'entity_type', 'entity_id', 'id');
     }
 
     /**
@@ -294,8 +294,8 @@ class Contact extends Model
      */
     public function relatives(): BelongsToMany
     {
-        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'contact_id', 'related_id')
-                    ->withPivot('relation')->withTimestamps();
+        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'contact_id', 'related_id', 'id', 'id', 'relatives')
+                    ->withPivot(['relation'])->withTimestamps();
     }
 
     /**
@@ -305,7 +305,7 @@ class Contact extends Model
      */
     public function backRelatives(): BelongsToMany
     {
-        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'related_id', 'contact_id')
-                    ->withPivot('relation')->withTimestamps();
+        return $this->belongsToMany(self::class, config('rinvex.contacts.tables.contact_relations'), 'related_id', 'contact_id', 'id', 'id', 'backRelatives')
+                    ->withPivot(['relation'])->withTimestamps();
     }
 }
