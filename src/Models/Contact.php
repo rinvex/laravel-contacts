@@ -6,7 +6,6 @@ namespace Rinvex\Contacts\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Cacheable\CacheableEloquent;
 use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Contacts\Events\ContactDeleted;
@@ -74,7 +73,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Contact extends Model
 {
     use ValidatingTrait;
-    use CacheableEloquent;
 
     /**
      * {@inheritdoc}
