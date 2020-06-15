@@ -6,7 +6,6 @@ namespace Rinvex\Contacts\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Cacheable\CacheableEloquent;
 use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Contacts\Events\ContactDeleted;
@@ -74,7 +73,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Contact extends Model
 {
     use ValidatingTrait;
-    use CacheableEloquent;
 
     /**
      * {@inheritdoc}
@@ -157,8 +155,8 @@ class Contact extends Model
         'family_name' => 'nullable|string|strip_tags|max:150',
         'title' => 'nullable|string|strip_tags|max:150',
         'organization' => 'nullable|string|strip_tags|max:150',
-        'email' => 'nullable|email|min:3|max:150',
-        'phone' => 'nullable|numeric|phone',
+        'email' => 'required|email|min:3|max:150',
+        'phone' => 'nullable|phone:AUTO',
         'fax' => 'nullable|string|strip_tags|max:150',
         'country_code' => 'nullable|alpha|size:2|country',
         'language_code' => 'nullable|alpha|size:2|language',
