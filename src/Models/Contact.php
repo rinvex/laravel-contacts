@@ -155,7 +155,7 @@ class Contact extends Model
         'family_name' => 'nullable|string|strip_tags|max:150',
         'title' => 'nullable|string|strip_tags|max:150',
         'organization' => 'nullable|string|strip_tags|max:150',
-        'email' => 'required|email|min:3|max:150',
+        'email' => 'required|email|min:3|max:128',
         'phone' => 'nullable|phone:AUTO',
         'fax' => 'nullable|string|strip_tags|max:150',
         'country_code' => 'nullable|alpha|size:2|country',
@@ -166,7 +166,7 @@ class Contact extends Model
         'national_id' => 'nullable|string|strip_tags|max:150',
         'source' => 'nullable|string|strip_tags|max:150',
         'method' => 'nullable|string|strip_tags|max:150',
-        'notes' => 'nullable|string|strip_tags|max:10000',
+        'notes' => 'nullable|string|strip_tags|max:32768',
     ];
 
     /**
