@@ -6,10 +6,12 @@ namespace Rinvex\Contacts\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
+use Rinvex\Contacts\Events\ContactCreated;
 use Rinvex\Contacts\Events\ContactDeleted;
+use Rinvex\Contacts\Events\ContactUpdated;
 use Rinvex\Support\Traits\ValidatingTrait;
+use Rinvex\Contacts\Events\ContactRestored;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -139,8 +141,10 @@ class Contact extends Model
      * @var array
      */
     protected $dispatchesEvents = [
-        'saved' => ContactSaved::class,
+        'created' => ContactCreated::class,
+        'updated' => ContactUpdated::class,
         'deleted' => ContactDeleted::class,
+        'restored' => ContactRestored::class,
     ];
 
     /**

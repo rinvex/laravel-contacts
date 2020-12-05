@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace Rinvex\Contacts\Events;
 
 use Rinvex\Contacts\Models\Contact;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class ContactDeleted implements ShouldBroadcast
+class ContactCreated implements ShouldBroadcast
 {
     use InteractsWithSockets;
+    use SerializesModels;
     use Dispatchable;
 
     /**
@@ -36,7 +38,7 @@ class ContactDeleted implements ShouldBroadcast
      */
     public function __construct(Contact $contact)
     {
-        $this->model = $contact->withoutRelations();
+        $this->model = $contact;
     }
 
     /**
@@ -48,7 +50,6 @@ class ContactDeleted implements ShouldBroadcast
     {
         return [
             new PrivateChannel('rinvex.contacts.contacts.index'),
-            new PrivateChannel("rinvex.contacts.contacts.{$this->model->getRouteKey()}"),
         ];
     }
 
@@ -59,6 +60,6 @@ class ContactDeleted implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return 'contact.deleted';
+        return 'contact.created';
     }
 }

@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace Rinvex\Contacts\Events;
 
 use Rinvex\Contacts\Models\Contact;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class ContactSaved implements ShouldBroadcast
+class ContactUpdated implements ShouldBroadcast
 {
-    use SerializesModels;
     use InteractsWithSockets;
+    use SerializesModels;
+    use Dispatchable;
 
     /**
      * The name of the queue on which to place the event.
@@ -27,7 +29,7 @@ class ContactSaved implements ShouldBroadcast
      *
      * @var \Rinvex\Contacts\Models\Contact
      */
-    public $contact;
+    public Contact $model;
 
     /**
      * Create a new event instance.
@@ -36,17 +38,20 @@ class ContactSaved implements ShouldBroadcast
      */
     public function __construct(Contact $contact)
     {
-        $this->contact = $contact;
+        $this->model = $contact;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return \Illuminate\Broadcasting\Channel
+     * @return \Illuminate\Broadcasting\Channel|\Illuminate\Broadcasting\Channel[]
      */
     public function broadcastOn()
     {
-        return new Channel($this->formatChannelName());
+        return [
+            new PrivateChannel('rinvex.contacts.contacts.index'),
+            new PrivateChannel("rinvex.contacts.contacts.{$this->model->getRouteKey()}"),
+        ];
     }
 
     /**
@@ -56,16 +61,6 @@ class ContactSaved implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return 'rinvex.contacts.saved';
-    }
-
-    /**
-     * Format channel name.
-     *
-     * @return string
-     */
-    protected function formatChannelName(): string
-    {
-        return 'rinvex.contacts.list';
+        return 'contact.updated';
     }
 }
