@@ -7,11 +7,7 @@ namespace Rinvex\Contacts\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Rinvex\Contacts\Events\ContactCreated;
-use Rinvex\Contacts\Events\ContactDeleted;
-use Rinvex\Contacts\Events\ContactUpdated;
 use Rinvex\Support\Traits\ValidatingTrait;
-use Rinvex\Contacts\Events\ContactRestored;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -133,18 +129,6 @@ class Contact extends Model
     protected $observables = [
         'validating',
         'validated',
-    ];
-
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $dispatchesEvents = [
-        'created' => ContactCreated::class,
-        'updated' => ContactUpdated::class,
-        'deleted' => ContactDeleted::class,
-        'restored' => ContactRestored::class,
     ];
 
     /**
