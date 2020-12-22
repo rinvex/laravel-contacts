@@ -6,9 +6,7 @@ namespace Rinvex\Contacts\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Contacts\Events\ContactSaved;
 use Illuminate\Database\Eloquent\Builder;
-use Rinvex\Contacts\Events\ContactDeleted;
 use Rinvex\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -134,16 +132,6 @@ class Contact extends Model
     ];
 
     /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $dispatchesEvents = [
-        'saved' => ContactSaved::class,
-        'deleted' => ContactDeleted::class,
-    ];
-
-    /**
      * The default rules that the model will validate against.
      *
      * @var array
@@ -155,7 +143,7 @@ class Contact extends Model
         'family_name' => 'nullable|string|strip_tags|max:150',
         'title' => 'nullable|string|strip_tags|max:150',
         'organization' => 'nullable|string|strip_tags|max:150',
-        'email' => 'required|email|min:3|max:150',
+        'email' => 'required|email|min:3|max:128',
         'phone' => 'nullable|phone:AUTO',
         'fax' => 'nullable|string|strip_tags|max:150',
         'country_code' => 'nullable|alpha|size:2|country',
@@ -166,7 +154,7 @@ class Contact extends Model
         'national_id' => 'nullable|string|strip_tags|max:150',
         'source' => 'nullable|string|strip_tags|max:150',
         'method' => 'nullable|string|strip_tags|max:150',
-        'notes' => 'nullable|string|strip_tags|max:10000',
+        'notes' => 'nullable|string|strip_tags|max:32768',
     ];
 
     /**
