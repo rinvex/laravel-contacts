@@ -49,6 +49,6 @@ trait HasContacts
      */
     public function contacts(): MorphMany
     {
-        return $this->morphMany(config('rinvex.contacts.models.contact'), 'entity');
+        return $this->morphMany(config('rinvex.contacts.models.contact'), 'entity', 'entity_type', 'entity_id');
     }
 }
