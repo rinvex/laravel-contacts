@@ -138,26 +138,7 @@ class Contact extends Model
      *
      * @var array
      */
-    protected $rules = [
-        'entity_id' => 'required|integer',
-        'entity_type' => 'required|string|strip_tags|max:150',
-        'given_name' => 'required|string|strip_tags|max:150',
-        'family_name' => 'nullable|string|strip_tags|max:150',
-        'title' => 'nullable|string|strip_tags|max:150',
-        'organization' => 'nullable|string|strip_tags|max:150',
-        'email' => 'required|email|min:3|max:128',
-        'phone' => 'nullable|phone:AUTO',
-        'fax' => 'nullable|string|strip_tags|max:150',
-        'country_code' => 'nullable|alpha|size:2|country',
-        'language_code' => 'nullable|alpha|size:2|language',
-        'birthday' => 'nullable|date_format:Y-m-d',
-        'gender' => 'nullable|in:male,female',
-        'national_id_type' => 'nullable|in:identification,passport,other',
-        'national_id' => 'nullable|string|strip_tags|max:150',
-        'source' => 'nullable|string|strip_tags|max:150',
-        'method' => 'nullable|string|strip_tags|max:150',
-        'notes' => 'nullable|string|strip_tags|max:32768',
-    ];
+    protected $rules = [];
 
     /**
      * Whether the model should throw a
@@ -177,6 +158,26 @@ class Contact extends Model
         parent::__construct($attributes);
 
         $this->setTable(config('rinvex.contacts.tables.contacts'));
+        $this->setRules([
+            'entity_id' => 'required|integer',
+            'entity_type' => 'required|string|strip_tags|max:150',
+            'given_name' => 'required|string|strip_tags|max:150',
+            'family_name' => 'nullable|string|strip_tags|max:150',
+            'title' => 'nullable|string|strip_tags|max:150',
+            'organization' => 'nullable|string|strip_tags|max:150',
+            'email' => 'required|email|min:3|max:128',
+            'phone' => 'nullable|phone:AUTO',
+            'fax' => 'nullable|string|strip_tags|max:150',
+            'country_code' => 'nullable|alpha|size:2|country',
+            'language_code' => 'nullable|alpha|size:2|language',
+            'birthday' => 'nullable|date_format:Y-m-d',
+            'gender' => 'nullable|in:male,female',
+            'national_id_type' => 'nullable|in:identification,passport,other',
+            'national_id' => 'nullable|string|strip_tags|max:150',
+            'source' => 'nullable|string|strip_tags|max:150',
+            'method' => 'nullable|string|strip_tags|max:150',
+            'notes' => 'nullable|string|strip_tags|max:32768',
+        ]);
     }
 
     /**
