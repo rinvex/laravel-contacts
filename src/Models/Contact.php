@@ -155,8 +155,6 @@ class Contact extends Model
      */
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
-
         $this->setTable(config('rinvex.contacts.tables.contacts'));
         $this->setRules([
             'entity_id' => 'required|integer',
@@ -178,6 +176,8 @@ class Contact extends Model
             'method' => 'nullable|string|strip_tags|max:150',
             'notes' => 'nullable|string|strip_tags|max:32768',
         ]);
+
+        parent::__construct($attributes);
     }
 
     /**
