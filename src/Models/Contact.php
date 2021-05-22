@@ -156,7 +156,7 @@ class Contact extends Model
     public function __construct(array $attributes = [])
     {
         $this->setTable(config('rinvex.contacts.tables.contacts'));
-        $this->setRules([
+        $this->mergeRules([
             'entity_id' => 'required|integer',
             'entity_type' => 'required|string|strip_tags|max:150',
             'given_name' => 'required|string|strip_tags|max:150',
