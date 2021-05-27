@@ -1,5 +1,8 @@
 # Rinvex Contacts
 
+This package is NOT actively maintained! Want to jump in as a maintainer? Ping me [@omranic](https://twitter.com/omranic)
+
+
 **Rinvex Contacts** is a polymorphic Laravel package, for contact management system. You can add contacts to any eloquent model with ease.
 
 [![Packagist](https://img.shields.io/packagist/v/rinvex/laravel-contacts.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/laravel-contacts)
